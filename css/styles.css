@@ -31,13 +31,26 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: gold;
+    /* background-color: gold;*//* temporary color */
+    /* box-shadow: 4px 6px 10px 0px #000; */
+  }
+
+  .header::before {
+    content: "";
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
     box-shadow: 4px 6px 10px 0px #000;
+    z-index: 1;
   }
 
   .header-logo {
     min-width: 20%;
-    background-color: mediumspringgreen;
+    /* background-color: mediumspringgreen; *//* temporary color */
+    z-index: 2;
   }
 
   /* -- hamburger-menu -- */
@@ -48,6 +61,7 @@ body {
     height: 50px;
     background-color: #fff;
     /* border: 1px solid #000; */
+    z-index: 2;
   }
 
   .hamburger-menu span,
@@ -69,6 +83,7 @@ body {
   .hamburger-menu span::after {
     content: "";
     width: 100%;
+    transition: transform 0.7s; /* animation duration, when hamburger button is clicked */
   }
 
   .hamburger-menu span::before {
@@ -76,15 +91,15 @@ body {
     transform: translateY(-300%);
   }
 
+  .hamburger-menu span::after {
+    /* top: 300%; */
+    transform: translateY(300%);
+  }
+
   .hamburger-menu.active span {
     /* display: none; */
     /* height: 0; */
     background-color: #fff;
-  }
-
-  .hamburger-menu span::after {
-    /* top: 300%; */
-    transform: translateY(300%);
   }
 
   .hamburger-menu.active span::before {
@@ -106,13 +121,17 @@ body {
     left: 20px;
     right: 20px;
     bottom: 110%;
-    /* background-color: skyblue; */
+    /* background-color: skyblue; *//* temporary color */
     box-shadow: 4px 6px 10px 0px #000;
+    /* z-index: 0; */
+    /* transition-property: top, bottom;
+    transition-duration: 0.7s;   */
+    transition: top 0.7s, bottom 0.7s; /* animation duration for dropdown menu, when hamburger button is clicked */
   }
 
   .header-menu.active {
     top: 88px;
-    bottom: 20px;
+    bottom: 20px;    
   }
 
   .menu-list {
@@ -121,7 +140,7 @@ body {
     /* justify-content: space-around; */
     /* align-items: stretch; */
     height: 100%;
-    background-color: blanchedalmond;
+    /* background-color: blanchedalmond; *//* temporary color */
   }
   
   .menu-item {
@@ -138,7 +157,6 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     color: #000;
-    /* background-color: #fff; */
   }
 
   .header-logo > a {
@@ -157,13 +175,19 @@ body {
     /* width: 100%; */
     height: 100%;
     background-color: #fff;
+    /* background-color: blue; *//* temporary color */
+    /* transition-duration: 0.7s;
+    transition-property: transform; */
+    transition: transform 0.7s; /* animation duration for links of menu */
   }
 
   .menu-item > a:hover {
     /* font-size: 21px; */
     /* text-decoration: underline; */
-    transform: scale(1.2);
-    background: #cfd8dc;
+    transform: scale(1.2); /* animation for links of menu */
+    /* background: #cfd8dc; */
+    background: #e0e0e0;
+    /* background: #eeeeee; */
   }
 
 
@@ -176,6 +200,7 @@ body {
       position: static;
       width: 60%;
       box-shadow: none;
+      z-index: 2;
     }
 
     .menu-list {
